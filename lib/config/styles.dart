@@ -10,13 +10,5 @@ List randomColors = [
   Colors.orange,
   Colors.purple,
   Colors.pink,
-  Colors.teal,
   Colors.indigo,
-  Colors.lime,
-  Colors.cyan,
-  Colors.brown,
-  Colors.deepOrange,
-  Colors.deepPurple,
-  Colors.lightBlue,
-  Colors.lightGreen,
 ];

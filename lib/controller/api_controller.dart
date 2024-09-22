@@ -8,7 +8,8 @@ class ApiController extends GetxController {
   var isLoadMore = false.obs;
   var data = <Record>[].obs;
   var page = 1;
-  final int limitPerPage = 20;
+  final int limitPerPage = 50;
+  var maxDataCount = 20.obs;
   ApiService apiService = ApiService();
 
   @override
@@ -24,6 +25,7 @@ class ApiController extends GetxController {
       FountainModel response = await apiService.getFountainData(page: page, limitPerPage: limitPerPage);
       if (response.records != null && response.records!.isNotEmpty) {
         data.addAll(response.records!);
+        maxDataCount.value = response.totalCount!;
       }
 
     } catch (e) {
@@ -41,7 +43,6 @@ class ApiController extends GetxController {
   void loadMoreData() async {
     //Prevent loading more data if already loading or if there's no more data to load
     if (isLoading.value || isLoadMore.value) return;
-
     try {
       isLoadMore(true);
       page++;

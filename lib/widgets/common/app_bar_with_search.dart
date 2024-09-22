@@ -1,8 +1,7 @@
 import 'package:app_bar_with_search_switch/app_bar_with_search_switch.dart';
 import 'package:flutter/material.dart';
-import 'package:vancouver_open_data/widgets/text_icon_button.dart';
-
-import '../config/styles.dart';
+import 'package:vancouver_open_data/widgets/common/text_icon_button.dart';
+import '../../config/styles.dart';
 import 'Responsive.dart';
 
 AppBarWithSearchSwitch appbarWithSearch(

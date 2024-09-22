@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../config/styles.dart';
-
+import '../../config/styles.dart';
 class TextIconButton extends StatefulWidget {
   final String title;
   final IconData icon;
