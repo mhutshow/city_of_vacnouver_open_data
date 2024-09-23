@@ -20,8 +20,6 @@ Here are a few screenshots showcasing the app’s functionality and UI design:
 ### Windows View
 ![Windows View](assets/screenshots/windows_preview.png)
 
-### Water Fountain Details
-![Water Fountain Details](assets/screenshots/details_screen.png)
 
 ## APK & EXE Installation Instructions
 - **APK (Android Installer)**: Since the app is unsigned, your device may prompt a warning to trust the source. Please allow installation from untrusted sources.
