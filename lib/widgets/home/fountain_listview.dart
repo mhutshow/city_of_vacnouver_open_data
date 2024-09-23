@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:vancouver_open_data/config/styles.dart';
-import 'dart:math' as math;
+import '../../config/styles.dart';
 
 class FountainListItem extends StatelessWidget {
   final dynamic fountain;
   final int index;
+  final bool isSelected;
 
-  const FountainListItem({Key? key, this.fountain, required this.index}) : super(key: key);
+  const FountainListItem({
+    Key? key,
+    this.fountain,
+    required this.index,
+    this.isSelected = false,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +21,7 @@ class FountainListItem extends StatelessWidget {
           width: double.infinity,
           margin: const EdgeInsets.only(bottom: 10),
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: isSelected ? Colors.blue.shade100 : Colors.white,
             borderRadius: BorderRadius.circular(10),
             boxShadow: const [
               BoxShadow(
@@ -27,24 +32,27 @@ class FountainListItem extends StatelessWidget {
             ],
           ),
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0 , vertical: 10),
+            padding:
+            const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Name Row with Icon
+
                 Row(
                   children: [
                     const Icon(
-                      Icons.water_drop_outlined, // Icon for the name
+                      Icons.water_drop_outlined,
                       color: Colors.blueAccent,
                     ),
                     const SizedBox(width: 5),
                     Expanded(
                       child: Text(
-                        // Remove any newlines from the name
-                        (fountain?.name ?? 'No name available').replaceAll('\n', ' '),
+
+                        (fountain?.name ?? 'No name available')
+                            .replaceAll('\n', ' '),
                         overflow: TextOverflow.ellipsis,
-                        maxLines: 1, // Ensures ellipsis is applied if text overflows
+                        maxLines:
+                        1,
                         style: const TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w600,
@@ -58,7 +66,7 @@ class FountainListItem extends StatelessWidget {
                 Row(
                   children: [
                     const Icon(
-                      Icons.location_on, // Icon for location
+                      Icons.location_on,
                       color: Colors.grey,
                     ),
                     const SizedBox(width: 5),
@@ -66,7 +74,8 @@ class FountainListItem extends StatelessWidget {
                       child: Text(
                         fountain?.location ?? 'No location available',
                         overflow: TextOverflow.ellipsis,
-                        maxLines: 1, // Ensures ellipsis is applied if text overflows
+                        maxLines:
+                        1,
                       ),
                     ),
                   ],
@@ -77,7 +86,7 @@ class FountainListItem extends StatelessWidget {
                   Row(
                     children: [
                       const Icon(
-                        Icons.map, // Icon for area
+                        Icons.map,
                         color: Colors.green,
                       ),
                       const SizedBox(width: 5),
@@ -96,15 +105,15 @@ class FountainListItem extends StatelessWidget {
         ),
         Positioned(
           top: 0,
-          bottom: 0, // Ensures that the strip is vertically centered
+          bottom: 0,
           left: 0,
           child: Align(
             alignment: Alignment.centerLeft,
             child: Container(
-              height: 60, // You can adjust this height
+              height: 60,
               width: 5,
               decoration: BoxDecoration(
-                color: randomColors[index% randomColors.length],
+                color: randomColors[index % randomColors.length],
                 borderRadius: BorderRadius.circular(30),
               ),
             ),

@@ -9,7 +9,7 @@ class SortSection extends StatelessWidget {
   const SortSection({
     Key? key,
     required this.sortOrder,
-    required this.onSortOrderChanged, // Updated type
+    required this.onSortOrderChanged,
   }) : super(key: key);
 
   @override
@@ -41,12 +41,14 @@ class SortSection extends StatelessWidget {
               ),
               const SizedBox(width: 10),
               DropdownButton<String>(
+                underline: SizedBox.shrink(),
                 value: sortOrder,
                 onChanged: (newValue) {
                   if (newValue != null) {
                     onSortOrderChanged(newValue);
                   }
                 },
+                focusColor: Colors.transparent,
                 items: const [
                   DropdownMenuItem(
                     value: 'Ascending',

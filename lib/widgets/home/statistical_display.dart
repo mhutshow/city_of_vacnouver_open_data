@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:vancouver_open_data/controller/api_controller.dart';
 
 import '../../config/styles.dart';
+
+//As we are using pagination, and the api does not provide statistical data, we will show mock data
 
 class StatisticsDisplay extends StatelessWidget {
   const StatisticsDisplay({Key? key}) : super(key: key);
@@ -32,15 +36,22 @@ class StatisticsDisplay extends StatelessWidget {
                 )
               ],
             ),
-            child: const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 30),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  StatisticsColumn(title: "Total", value: "150"),
-                  StatisticsColumn(title: "Friendly", value: "75"),
-                  StatisticsColumn(title: "In operation", value: "75"),
-                  StatisticsColumn(title: "Maintainer", value: "5"),
+                  Obx(
+                    () => StatisticsColumn(
+                        title: "Total",
+                        value: Get.find<ApiController>()
+                            .maxDataCount
+                            .value
+                            .toString()),
+                  ),
+                  const StatisticsColumn(title: "Pet Friendly", value: "95"),
+                  const StatisticsColumn(title: "In operation", value: "175"),
+                  const StatisticsColumn(title: "Maintainer", value: "5"),
                 ],
               ),
             ),

@@ -25,7 +25,7 @@ class _TextIconButtonState extends State<TextIconButton> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(8.0), // Apply margin here to control outer spacing
+      margin: const EdgeInsets.all(8.0),
       child: MouseRegion(
         onEnter: (_) => setState(() {
           _isHovering = true;
@@ -36,14 +36,14 @@ class _TextIconButtonState extends State<TextIconButton> {
         child: InkWell(
           onTap: widget.action,
           borderRadius: BorderRadius.circular(8.0),
-          splashColor: Colors.white.withOpacity(0.2), // Click effect
+          splashColor: Colors.white.withOpacity(0.2),
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 200),
-            padding: const EdgeInsets.all(10.0), // Inner padding to create space inside the button
+            padding: const EdgeInsets.all(10.0),
             decoration: BoxDecoration(
               color: _isHovering
-                  ? widget.color?.withOpacity(0.8) // Hover effect
-                  : widget.color, // Default color
+                  ? widget.color?.withOpacity(0.8)
+                  : widget.color,
               borderRadius: BorderRadius.circular(8.0),
             ),
             child: Row(

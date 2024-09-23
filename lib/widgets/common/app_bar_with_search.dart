@@ -25,14 +25,6 @@ AppBarWithSearchSwitch appbarWithSearch(
             automaticallyImplyLeading: false,
             elevation: 0,
             backgroundColor: primaryColor,
-            // leading: Responsive.isMobile(context)
-            //     ? IconButton(
-            //   icon: const Icon(Icons.na.bars),
-            //   onPressed: () {
-            //     sidebarScaffoldKeyMobile.currentState?.openDrawer();
-            //   },
-            // )
-            //     : null,
             title: Text(
               title,
               style: TextStyle(color: Colors.white),
