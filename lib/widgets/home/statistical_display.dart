@@ -50,7 +50,7 @@ class StatisticsDisplay extends StatelessWidget {
                             .toString()),
                   ),
                   const StatisticsColumn(title: "Pet Friendly", value: "95"),
-                  const StatisticsColumn(title: "In operation", value: "175"),
+                  const StatisticsColumn(title: "In operation", value: "177"),
                   const StatisticsColumn(title: "Maintainer", value: "5"),
                 ],
               ),
