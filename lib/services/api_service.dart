@@ -29,19 +29,19 @@ class ApiService {
       if (dioError.response != null) {
         SnackbarHelper.showError(
           title: 'Error ${dioError.response?.statusCode}',
-          description: dioError.response?.statusMessage ?? 'An error occurred',
+          description: 'An error occurred',
         );
       } else {
         SnackbarHelper.showError(
           title: 'Error',
-          description: dioError.message ?? 'An error occurred',
+          description:'An error occurred. Check your internet connection',
         );
       }
       rethrow;
     } catch (e) {
       SnackbarHelper.showError(
         title: 'Error',
-        description: e.toString(),
+        description: 'Check your internet connection',
       );
       rethrow;
     }

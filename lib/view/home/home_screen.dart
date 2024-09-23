@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:multi_select_flutter/bottom_sheet/multi_select_bottom_sheet.dart';
+import 'package:multi_select_flutter/dialog/mult_select_dialog.dart';
 import 'package:multi_select_flutter/util/multi_select_item.dart';
+import 'package:multi_select_flutter/util/multi_select_list_type.dart';
 import '../../controller/api_controller.dart';
 import '../../model/fountain_model.dart';
 import '../../widgets/common/Responsive.dart';
@@ -52,19 +54,18 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
-  void _showFilterOptions(BuildContext context) {
+  void _showFilterOptions(BuildContext context) async {
     final areas = apiController.data
         .map((record) => record.record?.fields?.geoLocalArea ?? '')
         .toSet();
-    showModalBottomSheet(
-      isDismissible: true,
-      isScrollControlled: true,
-      useSafeArea: true,
+
+    await showDialog(
       context: context,
-      builder: (BuildContext context) {
-        return MultiSelectBottomSheet(
+      builder: (ctx) {
+        return MultiSelectDialog(
           items: areas.map((area) => MultiSelectItem(area, area)).toList(),
           initialValue: _selectedAreas,
+          listType: MultiSelectListType.CHIP,
           onConfirm: (values) {
             setState(() {
               _selectedAreas = List<String>.from(values);
@@ -74,6 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
       },
     );
   }
+
 
   @override
   Widget build(BuildContext context) {

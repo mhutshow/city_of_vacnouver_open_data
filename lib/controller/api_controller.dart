@@ -29,10 +29,7 @@ class ApiController extends GetxController {
       }
 
     } catch (e) {
-      SnackbarHelper.showError(
-        title: 'Error',
-        description: e.toString(),
-      );
+      print(e.toString());
     } finally {
       isLoading(false);
     }
